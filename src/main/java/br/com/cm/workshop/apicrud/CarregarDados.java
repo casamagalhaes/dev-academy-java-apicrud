@@ -21,7 +21,7 @@ public class CarregarDados {
     CommandLineRunner initDB(BebidaRepository repository) {
         return args -> {
             Bebida b;
-            for (int i = 0; i < 25; i++) {
+            for (int i = 1; i < 25; i++) {
                 b = new Bebida();
                 b.setNome("Bebida " + i);
                 b.setDescricao("Descricao " + i);

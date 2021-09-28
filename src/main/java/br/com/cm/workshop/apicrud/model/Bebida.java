@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import br.com.cm.workshop.apicrud.enums.TipoBebida;
 import lombok.AllArgsConstructor;
@@ -34,9 +35,12 @@ public class Bebida implements Serializable {
     
     @NotEmpty(message = "nome é obrigatório")
     private String nome;
-     
+    
+    @Size(max = 100, min = 5, message = "a descrição deve ter tamanho minimo de 5 de tamanho máximo de 10 caracteres")
     private String descricao;
 
+    @NotEmpty
+    @Size(max = 100, min = 5, message = "a marca deve ter tamanho minimo de 5 de tamanho máximo de 10 caracteres")
     private String marca;
 
     @Enumerated(EnumType.STRING)
@@ -46,7 +50,7 @@ public class Bebida implements Serializable {
      
     @Temporal(TemporalType.TIMESTAMP)
     private Date alteracao; 
-     
+    
     private Double preco;
     
 }
